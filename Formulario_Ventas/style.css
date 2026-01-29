@@ -1,0 +1,106 @@
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+}
+
+.contenedor{
+    width:900px;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+}
+
+h2{
+    background:#2c3e50;
+    color:white;
+    padding:12px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* CONTENEDORES */
+.fila{
+    display:flex;
+    gap:25px;
+    margin-bottom:20px;
+}
+
+fieldset.caja{
+    background:#f6d8b5;
+    border:2px solid #999;
+    padding:20px;
+    flex:1;
+}
+
+legend{
+    font-weight:bold;
+    padding:5px 15px;
+    background:#f6d8b5;
+    border:2px solid #999;
+    font-size:20px;
+}
+
+/* PAQUETES */
+.paquete{
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+/* PEDIDOS */
+.pedido{
+    display:grid;
+    grid-template-columns:120px 1fr 140px;
+    align-items:center;
+    margin-bottom:10px;
+    font-size:20px;
+}
+
+.pedido input{
+    width:80px;
+    height:25px;
+    font-size:18px;
+}
+
+
+/* ====== PAGO (CORREGIDO SEGÚN OBSERVACIÓN) ====== */
+
+.pago{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    font-size:20px;
+}
+
+/* Cada columna del pago */
+.pago-col{
+    display:flex;
+    flex-direction:column;
+    gap:15px; /* SALTO DE LÍNEA */
+}
+
+.fila-pago{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    align-items:center;
+    gap:10px;
+}
+
+
+/* Inputs largos */
+.pago .fila-pago input{
+    width:80%;
+    height:25px;
+    font-size:18px;
+}
+
+/* BOTÓN A LA DERECHA */
+.pago-col:last-child{
+    align-items:flex-end;
+}
+
+/* BOTÓN (NO SE CAMBIA ESTILO, SOLO POSICIÓN) */
+button{
+    margin-top:10px;
+    padding:8px;
+    font-size:16px;
+}
