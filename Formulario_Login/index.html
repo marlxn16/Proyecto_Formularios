@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formularios Login</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <h1 class="titulo">Bienvenido a Formularios - Login</h1>
+
+  <div id="mensajes"></div>
+
+  <div class="contenedor">
+
+    <!-- LOGIN -->
+    <div class="card">
+      <h2>INICIAR SESIÓN</h2>
+
+      <form action="login.php" method="POST">
+        <input type="text" name="username" placeholder="USERNAME..." required />
+        <input type="password" name="password" placeholder="PASSWORD..." required />
+        <button type="submit">LOGIN</button>
+      </form>
+    </div>
+
+    <!-- REGISTRO -->
+    <div class="card">
+      <h2>CREAR CUENTA</h2>
+
+      <form action="registro.php" method="POST">
+        <input type="text" name="username" placeholder="USERNAME..." required />
+        <input type="email" name="email" placeholder="EMAIL..." required />
+        <input type="password" name="password" placeholder="PASSWORD..." required />
+        <input type="password" name="password2" placeholder="REPIT PASSWORD..." required />
+
+        <button type="submit">REGISTRAR</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const msg = urlParams.get('msg');
+    const user = urlParams.get('user');
+    
+    const mensajesDiv = document.getElementById('mensajes');
+    
+    if (msg) {
+      const divMsg = document.createElement('div');
+      divMsg.className = 'mensaje';
+      divMsg.textContent = msg;
+      mensajesDiv.appendChild(divMsg);
+    }
+    
+    if (user) {
+      const divUser = document.createElement('div');
+      divUser.className = 'mensaje';
+      divUser.innerHTML = `Sesión iniciada como: <b>${user}</b> | <a class="link2" href="logout.php">Cerrar sesión</a>`;
+      mensajesDiv.appendChild(divUser);
+    }
+  </script>
+
+</body>
+</html>
