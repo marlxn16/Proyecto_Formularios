@@ -3,7 +3,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-  header("Location: index.php?msg=" . urlencode("Acceso invalido"));
+  header("Location: index.html?msg=" . urlencode("Acceso invalido"));
   exit;
 }
 
@@ -13,17 +13,17 @@ $password  = $_POST["password"] ?? "";
 $password2 = $_POST["password2"] ?? "";
 
 if ($username === "" || $email === "" || $password === "" || $password2 === "") {
-  header("Location: index.php?msg=" . urlencode("Campos vacios. Complete todo."));
+  header("Location: index.html?msg=" . urlencode("Campos vacios. Complete todo."));
   exit;
 }
 
 if ($password !== $password2) {
-  header("Location: index.php?msg=" . urlencode("Las contraseñas no coinciden."));
+  header("Location: index.html?msg=" . urlencode("Las contraseñas no coinciden."));
   exit;
 }
 
 // Ruta al archivo de guardado de los registro el TXT 
-$archivo = _DIR_ . "/usuarios.txt";
+$archivo = __DIR__ . "/usuarios.txt";
 
 if (!file_exists($archivo)) {
   file_put_contents($archivo, "");
@@ -45,5 +45,5 @@ foreach ($lineas as $linea) {
 $registro = $username . "|" . $email . "|" . $password . PHP_EOL;
 file_put_contents($archivo, $registro, FILE_APPEND);
 
-header("Location: index.php?msg=" . urlencode("Registro exitoso. Ya puede iniciar sesión."));
+header("Location: index.html?msg=" . urlencode("Registro exitoso. Ya puede iniciar sesión."));
 exit;
